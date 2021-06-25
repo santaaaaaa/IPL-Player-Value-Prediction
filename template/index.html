@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="static/css/style.css">
+
+  </head>  
+  <body>
+   <div class="container1">
+
+    <div class="brand-title">IPL PREDICT PLAYER VALUES</div>
+      <div class="inputs">
+        <form action="{{url_for('predict')}}" method="post">
+          <label>RAA</label>
+          <input type="text" placeholder="raa" name="raa" required="required" />
+          
+          <label>WINS</label>
+          <input type="text" placeholder ="wins" name="wins" required="required" />
+          
+          <label>EFSCORE</label>
+          <input type="text"  placeholder="efscore" name="efscore" required="required" />
+          
+          <label>SALARY</label>
+          <input type="range" min="10000" max="10000000" value="50000" required="required" id="myRange" class="slider"/>
+          <p>Value: <span id="demo"></span></p>
+          <button type="submit" class="btn btn-primary btn-block btn-large" onclick="myFunction()">predict</button>
+        </form>
+      </div>
+    </div>  
+
+    <script>
+      function myFunction() {
+      var slider = document.getElementById("myRange");
+      
+
+      var output = document.getElementById("demo");
+      
+      output.innerHTML = slider.value;
+      
+      slider.oninput = function() {
+        output.innerHTML = this.value;
+      }
+    }
+      </script>
+
+  </body>
+</html>
